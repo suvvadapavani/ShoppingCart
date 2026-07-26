@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ShoppingCart.Models;
 using System.Diagnostics;
 
 namespace ShoppingCart.Controllers
 {
+    //automatically shows login once app loaded
     public class HomeController : Controller
     {
         public IActionResult Index()

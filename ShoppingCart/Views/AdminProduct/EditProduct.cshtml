@@ -1,0 +1,66 @@
+﻿@model Product
+@* we used @using ShoppingCart.Models in viewimport.cshtml
+so we can simple use product or else we have to use it like below
+ShoppingCart.Models.Product *@
+
+<div class="card border-0">
+    <div class="card-header ms-0 text-white" style="background-color:darkcyan">
+        <h1 class="p-2" text-center>Edit Product </h1>
+    </div>
+    <div class="card-body mt-3"></div>
+    @* in the form if we want to upload any files like images files so we have to specify that form is accepting these types of file so we ahve to mention
+    enctype="multipart/form-data" *@
+
+    @*
+        if method="get" the url in the browser will be
+        https://localhost:7210/AdminProduct/AddProduct?ProductName=Apple&Description=Apple+laptop&Price=100000&ImagePath=WIN_20260614_21_21_15_Pro.jpg
+        so it's better to use post to hide the enetered details
+    *@
+
+    <form asp-action="EditProduct" method="post" enctype="multipart/form-data">
+        <span asp-validation-summary="All" class="text-danger"></span>
+        <div class=" form-floating mb-3">
+            <input asp-for="ProductName" class="form-control" placeholder="Enter Product Name" />
+            <label class="ms-2 text-muted">ProductName</label>
+            <span asp-validation-for="ProductName" class="text-danger"></span>
+        </div>
+        <div class=" form-floating mb-3">
+            <input asp-for="Description" class="form-control" placeholder="" />
+            <label class="ms-2 text-muted">Description</label>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class=" form-floating mb-3">
+            <input asp-for="Price" class="form-control" placeholder="" />
+            <label class="ms-2 text-muted">Price</label>
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <div class="mb-3 text-muted">
+            <label asp-for="ImageFile" class="form-label">Product Image</label>
+            <div>
+                <img src="@Model.ImagePath" width="150" height="150"/>
+                </div>
+            <input asp-for="ImageFile" type="file" class="form-control" />
+       </div>
+      @*     
+        </div>
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="w-100 btn btn-dark">Update Product</button>
+        </div> *@
+<div class="row justify-content-between">
+    <div class="col-6">
+        <a asp-action="Index" class="btn btn-secondary">Back</a>
+    </div>
+
+    <div class="col-6">
+      <button type="submit" class="btn text-white w-100" style="background-color:darkcyan" >Update Product</button>
+    </div>
+
+</div>
+
+    </form>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

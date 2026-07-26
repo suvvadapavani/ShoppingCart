@@ -1,7 +1,19 @@
-# Ignore Visual Studio temporary files
+# Visual Studio files
 .vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
 bin/
 obj/
-*.user
-*.suo
-*.vsidx
+Debug/
+Release/
+
+# Other temp files
+*.log
+*.cache
+*.pdb
+*.exe
+*.dll

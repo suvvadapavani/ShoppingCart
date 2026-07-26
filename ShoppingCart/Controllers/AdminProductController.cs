@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ShoppingCart.Data;
 using ShoppingCart.Models;
 
 namespace ShoppingCart.Controllers
 {
+    [Authorize(Roles="Admin")]
     public class AdminProductController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -26,17 +28,66 @@ namespace ShoppingCart.Controllers
             return View();
         }
 
-        [HttpPut]
+     
         public async Task<IActionResult> EditProduct(int id)
         {
             Product product = await _context.Products.FindAsync(id);
             return View(product);
         }
-        [HttpDelete]
+        [HttpPost]
+        public async Task<IActionResult> EditProduct(Product model)
+        {
+            var product = await _context.Products.FindAsync(model.Id);
+
+            if (product == null)
+                throw new Exception("Product not found");
+
+            product.ProductName = model.ProductName;
+            product.Description = model.Description;
+            product.Price = model.Price;
+            product.ImagePath= model.ImagePath;
+            product.CreatedDate = DateTime.UtcNow;
+
+            _context.Products.Update(product);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+
+   
         public async Task<IActionResult> DeleteProduct(int id) 
         {
+            if (id == null)
+            {
+                return NotFound();
+            }
             Product product = await _context.Products.FindAsync(id);
+            if(product == null)
+            {
+                return NotFound();
+            }
             return View(product);
+        }
+        [HttpPost]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var product = await _context.Products.FindAsync(id);
+            if(product!=null)
+            {
+                //Image remains in wwroot imagaes folder so in order to delete the product along with image we have to write the below if 
+                if (!string.IsNullOrEmpty(product.ImagePath))
+                {
+                    var imagepath = Path.Combine(_webHostEnvironment.WebRootPath, product.ImagePath.TrimStart('/').Replace("/", "\\"));
+                    if (System.IO.File.Exists(imagepath))
+                    {
+                        System.IO.File.Delete(imagepath);
+                    }
+                }
+                _context.Products.Remove(product);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToAction(nameof(Index));
+
         }
         [HttpPost]
         public async Task<IActionResult> AddProduct(Product product)
