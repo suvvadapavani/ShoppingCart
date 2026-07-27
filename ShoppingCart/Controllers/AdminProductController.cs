@@ -34,6 +34,25 @@ namespace ShoppingCart.Controllers
             Product product = await _context.Products.FindAsync(id);
             return View(product);
         }
+        //[HttpPost]
+        //public async Task<IActionResult> EditProduct(Product model)
+        //{
+        //    var product = await _context.Products.FindAsync(model.Id);
+
+        //    if (product == null)
+        //        throw new Exception("Product not found");
+
+        //    product.ProductName = model.ProductName;
+        //    product.Description = model.Description;
+        //    product.Price = model.Price;
+        //    product.ImagePath= model.ImagePath;
+        //    product.CreatedDate = DateTime.UtcNow;
+
+        //    _context.Products.Update(product);
+        //    await _context.SaveChangesAsync();
+        //    TempData["Success"] = "Record updated sucessfully";
+        //    return RedirectToAction("Index");
+        //}
         [HttpPost]
         public async Task<IActionResult> EditProduct(Product model)
         {
@@ -45,15 +64,44 @@ namespace ShoppingCart.Controllers
             product.ProductName = model.ProductName;
             product.Description = model.Description;
             product.Price = model.Price;
-            product.ImagePath= model.ImagePath;
             product.CreatedDate = DateTime.UtcNow;
+
+            // Handle image upload
+            if (model.ImageFile != null && model.ImageFile.Length > 0)
+            {
+                string wwwRootPath = _webHostEnvironment.WebRootPath;
+                string originalFilename = Path.GetFileNameWithoutExtension(model.ImageFile.FileName)
+                    .Trim().Replace(" ", "_");
+                string extension = Path.GetExtension(model.ImageFile.FileName);
+                string uniqueFileName = $"{originalFilename}_{Guid.NewGuid():N}{extension}";
+
+                string imageFolder = Path.Combine(wwwRootPath, "images");
+                if (!Directory.Exists(imageFolder))
+                {
+                    Directory.CreateDirectory(imageFolder);
+                }
+
+                string filePath = Path.Combine(imageFolder, uniqueFileName);
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await model.ImageFile.CopyToAsync(stream);
+                }
+
+                product.ImagePath = "/images/" + uniqueFileName;
+            }
+            else
+            {
+                // Keep the old image if no new file uploaded
+                product.ImagePath = product.ImagePath;
+            }
 
             _context.Products.Update(product);
             await _context.SaveChangesAsync();
+            TempData["Success"] = "Record updated successfully";
             return RedirectToAction("Index");
         }
 
-   
+
         public async Task<IActionResult> DeleteProduct(int id) 
         {
             if (id == null)
@@ -85,6 +133,7 @@ namespace ShoppingCart.Controllers
                 _context.Products.Remove(product);
                 await _context.SaveChangesAsync();
             }
+            TempData["Success"] = "Record deleted successfully";
 
             return RedirectToAction(nameof(Index));
 
@@ -135,6 +184,8 @@ namespace ShoppingCart.Controllers
             {
                 await _context.Products.AddAsync(product);
                 await _context.SaveChangesAsync();
+                TempData["Success"] = "Record Added successfully";
+
                 return RedirectToAction("Index");
             }
             else

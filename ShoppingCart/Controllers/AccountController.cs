@@ -55,23 +55,64 @@ namespace ShoppingCart.Controllers
 
             return View(model);
         }
+       
         [HttpGet]
-        public IActionResult Login(string returnUrl=null) =>
-            View(new LoginViewModel { ReturnUrl=returnUrl});
+        [AllowAnonymous]
+        public IActionResult Login(string returnUrl = null)
+        {
+            // Ensure returnUrl always has a valid fallback
+            returnUrl ??= Url.Content("~/");
+            return View(new LoginViewModel { ReturnUrl = returnUrl });
+        }
         [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
         {
+            returnUrl ??= model.ReturnUrl ?? Url.Content("~/");
+
             if (ModelState.IsValid)
             {
-                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
+                var result = await _signInManager.PasswordSignInAsync(
+                    model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
+
                 if (result.Succeeded)
                 {
                     return RedirectToLocal(returnUrl);
                 }
+
+                ModelState.AddModelError("", "Invalid login attempt.");
             }
+
             return View(model);
         }
+
+
+        //[HttpPost]
+        //[AllowAnonymous]
+        //public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
+        //{
+
+        //    if (ModelState.IsValid)
+        //    {
+        //        var result = await _signInManager.PasswordSignInAsync(
+        //            model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
+
+        //        if (result.Succeeded)
+        //        {
+        //            return RedirectToLocal(returnUrl ?? model.ReturnUrl);
+        //        }
+
+        //        ModelState.AddModelError("", "Invalid login attempt.");
+        //    }
+        //    foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+        //    {
+        //        Console.WriteLine(error.ErrorMessage);
+        //    }
+
+
+        //    return View(model);
+        //}
+
         [HttpPost]
         public async Task<IActionResult> LogOut()
         {

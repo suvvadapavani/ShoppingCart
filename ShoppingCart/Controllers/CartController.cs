@@ -32,6 +32,8 @@ namespace ShoppingCart.Controllers
             cart.Quantity += 1;
             _context.CartItems.Update(cart);
             await _context.SaveChangesAsync();
+            TempData["Success"] = "Cart Item incremented successfully";
+
             return RedirectToAction(nameof(Index));
 
         }
@@ -59,6 +61,8 @@ namespace ShoppingCart.Controllers
 
             }
 
+            TempData["Success"] = "Cart Item decremented successfully";
+
             return RedirectToAction(nameof(Index));
 
 
@@ -78,6 +82,7 @@ namespace ShoppingCart.Controllers
             HttpContext.Session.SetInt32(SD.SessionCart, (_context.CartItems.Count(x => x.UserId == userid)) - 1);
             //it should be before savechanges because after updating cart cart will be 0 and then again we did _1 then it will display -1
             await _context.SaveChangesAsync();
+            TempData["Success"] = "Cart Item Removed successfully";
 
             return RedirectToAction(nameof(Index));
 

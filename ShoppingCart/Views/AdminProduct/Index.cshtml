@@ -1,4 +1,9 @@
 ﻿@model IEnumerable<Product>
+@* @if (TempData["Success"] != null)
+{
+    <h2>@TempData["Success"]</h2>
+} *@
+
 <div class="row align-items-center mb-3" >
     <div class="col-md-2">
     <h2 class="text-secondary">Product List</h2>
