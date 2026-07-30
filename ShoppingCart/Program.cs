@@ -131,7 +131,7 @@
 
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using ShoppingCart.Data;
+using ShoppingCart.DataAccess.Data;
 using ShoppingCart.Services;
 using ShoppingCart.Services.ServiceInterfaces;
 

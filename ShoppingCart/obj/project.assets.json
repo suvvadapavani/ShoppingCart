@@ -1214,6 +1214,42 @@
             "rid": "win"
           }
         }
+      },
+      "ShoppingCart.DataAccess/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "9.0.0",
+          "Microsoft.EntityFrameworkCore": "9.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0",
+          "ShoppingCart.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ShoppingCart.DataAccess.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ShoppingCart.DataAccess.dll": {}
+        }
+      },
+      "ShoppingCart.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/ShoppingCart.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ShoppingCart.Models.dll": {}
+        }
+      },
+      "ShoppingCart.Utility/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/ShoppingCart.Utility.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ShoppingCart.Utility.dll": {}
+        }
       }
     }
   },
@@ -3580,6 +3616,21 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "ShoppingCart.DataAccess/1.0.0": {
+      "type": "project",
+      "path": "../ShoppingCart.DataAccess/ShoppingCart.DataAccess.csproj",
+      "msbuildProject": "../ShoppingCart.DataAccess/ShoppingCart.DataAccess.csproj"
+    },
+    "ShoppingCart.Models/1.0.0": {
+      "type": "project",
+      "path": "../ShoppingCart.Models/ShoppingCart.Models.csproj",
+      "msbuildProject": "../ShoppingCart.Models/ShoppingCart.Models.csproj"
+    },
+    "ShoppingCart.Utility/1.0.0": {
+      "type": "project",
+      "path": "../ShoppingCart.Utility/ShoppingCart.Utility.csproj",
+      "msbuildProject": "../ShoppingCart.Utility/ShoppingCart.Utility.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -3588,7 +3639,10 @@
       "Microsoft.EntityFrameworkCore >= 10.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 10.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 10.0.0",
-      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.23.0"
+      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.23.0",
+      "ShoppingCart.DataAccess >= 1.0.0",
+      "ShoppingCart.Models >= 1.0.0",
+      "ShoppingCart.Utility >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -3623,7 +3677,17 @@
         "net10.0": {
           "framework": "net10.0",
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\PAVANI\\source\\repos\\TeluguProgrammer\\ShoppingCartSln\\ShoppingCart.DataAccess\\ShoppingCart.DataAccess.csproj": {
+              "projectPath": "C:\\Users\\PAVANI\\source\\repos\\TeluguProgrammer\\ShoppingCartSln\\ShoppingCart.DataAccess\\ShoppingCart.DataAccess.csproj"
+            },
+            "C:\\Users\\PAVANI\\source\\repos\\TeluguProgrammer\\ShoppingCartSln\\ShoppingCart.Models\\ShoppingCart.Models.csproj": {
+              "projectPath": "C:\\Users\\PAVANI\\source\\repos\\TeluguProgrammer\\ShoppingCartSln\\ShoppingCart.Models\\ShoppingCart.Models.csproj"
+            },
+            "C:\\Users\\PAVANI\\source\\repos\\TeluguProgrammer\\ShoppingCartSln\\ShoppingCart.Utility\\ShoppingCart.Utility.csproj": {
+              "projectPath": "C:\\Users\\PAVANI\\source\\repos\\TeluguProgrammer\\ShoppingCartSln\\ShoppingCart.Utility\\ShoppingCart.Utility.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

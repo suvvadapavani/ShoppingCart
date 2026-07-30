@@ -1,7 +1,7 @@
 ﻿using AspNetCoreGeneratedDocument;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ShoppingCart.Data;
+using ShoppingCart.DataAccess.Data;
 using System.Security.Claims;
 
 namespace ShoppingCart.Controllers

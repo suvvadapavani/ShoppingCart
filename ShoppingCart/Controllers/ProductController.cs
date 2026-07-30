@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using ShoppingCart.Data;
+using ShoppingCart.DataAccess.Data;
 using ShoppingCart.Models;
 using System.Security.Claims;
 

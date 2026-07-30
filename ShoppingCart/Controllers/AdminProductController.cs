@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using ShoppingCart.Data;
+using ShoppingCart.DataAccess.Data;
 using ShoppingCart.Models;
 
 namespace ShoppingCart.Controllers
@@ -20,7 +20,21 @@ namespace ShoppingCart.Controllers
         public IActionResult Index()
         {
             var products = _context.Products.ToList();
+            //VieData needs converton in order to access
+           //total product count it is dynamic type will be taken dynamically based on the value assigned
+            ViewBag.TotalProducts = products.Count();
+            ViewData["TotalProducts"]= products.Count();
+            //latest product
+            ViewBag.LatestProduct = products.OrderByDescending(p => p.CreatedDate)
+                .Select(p => p.ProductName)
+                .FirstOrDefault() ?? "No Products";
+            //Max price product
+            ViewBag.MaxPrice = products.Any() ? products.Max(p => p.Price) : 0;
+
+
             return View(products);
+       
+
         }
         [HttpGet]
         public IActionResult AddProduct()

@@ -4,17 +4,44 @@
     <h2>@TempData["Success"]</h2>
 } *@
 
-<div class="row align-items-center mb-3" >
+@* <div class="row align-items-center mb-3" >
     <div class="col-md-2">
-    <h2 class="text-secondary">Product List</h2>
+        @* Total products from view bag *@
+@*         <h2 class="text-secondary">Product List:@ViewBag.TotalProducts</h2>
     </div>
     <div class="col-md-10 text-end" >
         <a asp-action="AddProduct" class="btn btn-dark text-white"><i class="bi bi-plus-circle"></i>Add Product</a>
 
     </div>
+</div> *@ 
+
+@* <p>@ViewData["TotalProductsFromViewData"]</p>
+<p>
+    @{
+        // Needs casting for arithmetic
+        int count = ViewData["TotalProductsFromViewData"];
+        <p>@(count * 2)</p>
+    } *@
+    @* ViewData wroks fine for normal displaying but when we want to perform calculations or arthemetic operations casting is required  *@
+<div class="row align-items-center mb-3">
+    <div class="col-md-6">
+        <h2 class="text-secondary">Product List</h2>
+
+        <h2 class="text-muted">Total Products:<strong>@ViewData["TotalProducts"]</strong></h2>
+        <h2 class="text-muted">Latest Product:<strong>@ViewBag.LatestProduct</strong></h2>
+        <h2 class="text-muted">Highest Price:<strong>@ViewBag.MaxPrice</strong></h2>
+
+     </div>
+     <div class="col-md-6 text-end" >
+        <a asp-action="AddProduct" class="btn btn-dark text-white">
+            <i class="bi bi-plus-circle"></i>Add Product
+        </a>
+
+     </div>
+
 </div>
 
-<table class="table">
+<table class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>Name</th>

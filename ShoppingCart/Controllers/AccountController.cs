@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using ShoppingCart.Data;
+using ShoppingCart.DataAccess.Data;
 using ShoppingCart.Services.ServiceInterfaces;
 using ShoppingCart.ViewModels;
 

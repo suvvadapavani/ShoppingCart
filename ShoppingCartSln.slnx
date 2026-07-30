@@ -1,3 +1,6 @@
 <Solution>
+  <Project Path="ShoppingCart.DataAccess/ShoppingCart.DataAccess.csproj" Id="a6b83985-26e0-42ac-8580-1c7e29874205" />
+  <Project Path="ShoppingCart.Models/ShoppingCart.Models.csproj" Id="2fcb9d68-0653-4e49-9fc4-0e7d4147879b" />
+  <Project Path="ShoppingCart.Utility/ShoppingCart.Utility.csproj" Id="ea273ba1-3b51-449a-932d-7d4b4e8f6b2e" />
   <Project Path="ShoppingCart/ShoppingCart.csproj" />
 </Solution>

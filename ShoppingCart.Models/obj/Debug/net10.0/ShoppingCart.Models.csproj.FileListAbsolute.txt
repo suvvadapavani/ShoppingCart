@@ -1,0 +1,13 @@
+C:\Users\PAVANI\source\repos\TeluguProgrammer\ShoppingCartSln\ShoppingCart.Models\bin\Debug\net10.0\ShoppingCart.Models.deps.json
+C:\Users\PAVANI\source\repos\TeluguProgrammer\ShoppingCartSln\ShoppingCart.Models\bin\Debug\net10.0\ShoppingCart.Models.dll
+C:\Users\PAVANI\source\repos\TeluguProgrammer\ShoppingCartSln\ShoppingCart.Models\bin\Debug\net10.0\ShoppingCart.Models.pdb
+C:\Users\PAVANI\source\repos\TeluguProgrammer\ShoppingCartSln\ShoppingCart.Models\obj\Debug\net10.0\ShoppingCart.Models.csproj.AssemblyReference.cache
+C:\Users\PAVANI\source\repos\TeluguProgrammer\ShoppingCartSln\ShoppingCart.Models\obj\Debug\net10.0\ShoppingCart.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PAVANI\source\repos\TeluguProgrammer\ShoppingCartSln\ShoppingCart.Models\obj\Debug\net10.0\ShoppingCart.Models.AssemblyInfoInputs.cache
+C:\Users\PAVANI\source\repos\TeluguProgrammer\ShoppingCartSln\ShoppingCart.Models\obj\Debug\net10.0\ShoppingCart.Models.AssemblyInfo.cs
+C:\Users\PAVANI\source\repos\TeluguProgrammer\ShoppingCartSln\ShoppingCart.Models\obj\Debug\net10.0\ShoppingCart.Models.csproj.CoreCompileInputs.cache
+C:\Users\PAVANI\source\repos\TeluguProgrammer\ShoppingCartSln\ShoppingCart.Models\obj\Debug\net10.0\ShoppingCart.Models.sourcelink.json
+C:\Users\PAVANI\source\repos\TeluguProgrammer\ShoppingCartSln\ShoppingCart.Models\obj\Debug\net10.0\ShoppingCart.Models.dll
+C:\Users\PAVANI\source\repos\TeluguProgrammer\ShoppingCartSln\ShoppingCart.Models\obj\Debug\net10.0\refint\ShoppingCart.Models.dll
+C:\Users\PAVANI\source\repos\TeluguProgrammer\ShoppingCartSln\ShoppingCart.Models\obj\Debug\net10.0\ShoppingCart.Models.pdb
+C:\Users\PAVANI\source\repos\TeluguProgrammer\ShoppingCartSln\ShoppingCart.Models\obj\Debug\net10.0\ref\ShoppingCart.Models.dll

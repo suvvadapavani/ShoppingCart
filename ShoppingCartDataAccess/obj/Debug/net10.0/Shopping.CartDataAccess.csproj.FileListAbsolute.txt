@@ -1,0 +1,6 @@
+C:\Users\PAVANI\source\repos\TeluguProgrammer\ShoppingCartSln\ShoppingCartDataAccess\obj\Debug\net10.0\Shopping.CartDataAccess.csproj.AssemblyReference.cache
+C:\Users\PAVANI\source\repos\TeluguProgrammer\ShoppingCartSln\ShoppingCartDataAccess\obj\Debug\net10.0\Shopping.CartDataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PAVANI\source\repos\TeluguProgrammer\ShoppingCartSln\ShoppingCartDataAccess\obj\Debug\net10.0\Shopping.CartDataAccess.AssemblyInfoInputs.cache
+C:\Users\PAVANI\source\repos\TeluguProgrammer\ShoppingCartSln\ShoppingCartDataAccess\obj\Debug\net10.0\Shopping.CartDataAccess.AssemblyInfo.cs
+C:\Users\PAVANI\source\repos\TeluguProgrammer\ShoppingCartSln\ShoppingCartDataAccess\obj\Debug\net10.0\Shopping.CartDataAccess.csproj.CoreCompileInputs.cache
+C:\Users\PAVANI\source\repos\TeluguProgrammer\ShoppingCartSln\ShoppingCartDataAccess\obj\Debug\net10.0\Shopping.CartDataAccess.sourcelink.json
